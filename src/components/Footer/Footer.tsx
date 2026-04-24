@@ -15,7 +15,6 @@ const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/mohitmarvania' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/mohit-marvania' },
   { label: 'Google Scholar', href: 'https://scholar.google.com/' },
-  { label: 'Twitter / X', href: 'https://x.com/' },
 ];
 
 /* ──────────────── Component ──────────────── */
