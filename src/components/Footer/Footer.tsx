@@ -14,7 +14,7 @@ const BOT_MESSAGES = [
 const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/mohitmarvania' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/mohit-marvania' },
-  { label: 'Google Scholar', href: 'https://scholar.google.com/' },
+  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?hl=en&user=EUbxNRYAAAAJ' },
 ];
 
 /* ──────────────── Component ──────────────── */
