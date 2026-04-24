@@ -1,0 +1,294 @@
+/* ============================================
+   FEATURED RESEARCH — Sticky Stacked Cards
+   ============================================ */
+
+/* Outer section — height set dynamically via JS */
+.featured-research {
+  position: relative;
+  width: 100%;
+  z-index: var(--z-content);
+}
+
+/* Sticky viewport — pinned to screen while scrolling */
+.featured-research__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-research__inner {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--side-padding) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ─── Section heading (stays at top) ─── */
+.featured-research__heading {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-xl);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.featured-research__heading-solid {
+  color: var(--color-text-primary);
+}
+
+.featured-research__heading-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-accent);
+  margin-left: 0.25em;
+}
+
+/* ─── Cards viewport (fills remaining space) ─── */
+.featured-research__cards-viewport {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* ─── Individual card (absolute-stacked) ─── */
+.fr-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background: #111111;
+  border-radius: 20px;
+  overflow: hidden;
+  will-change: transform, filter, opacity;
+  transform-origin: center center;
+}
+
+/* ─── Card text area (left) ─── */
+.fr-card__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-3xl) var(--space-2xl);
+  position: relative;
+  z-index: 1;
+}
+
+.fr-card__labels {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.fr-card__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.fr-card__label+.fr-card__label::before {
+  content: '·';
+  margin-right: var(--space-sm);
+  color: var(--color-text-tertiary);
+}
+
+.fr-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.fr-card__desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2xl);
+}
+
+/* ─── Stats row ─── */
+.fr-card__stats {
+  display: flex;
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-xl);
+}
+
+.fr-card__stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.fr-card__stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+}
+
+/* ─── CTA link ─── */
+.fr-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.fr-card__cta:hover {
+  color: var(--color-accent);
+  gap: var(--space-md);
+}
+
+.fr-card__cta-arrow {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.fr-card__cta:hover .fr-card__cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ─── Card image area (right) ─── */
+.fr-card__image-area {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.fr-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ─── CTA Section (after cards, in normal flow) ─── */
+.featured-research__cta-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4xl) var(--side-padding);
+}
+
+.featured-research__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 48px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.featured-research__cta-btn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(228, 254, 154, 0.25);
+}
+
+.featured-research__cta-text {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.featured-research__cta-btn:hover .featured-research__cta-text {
+  color: var(--color-bg);
+}
+
+.featured-research__cta-arrow {
+  font-size: 24px;
+  color: var(--color-accent);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s ease;
+}
+
+.featured-research__cta-btn:hover .featured-research__cta-arrow {
+  transform: translateX(6px);
+  color: var(--color-bg);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .fr-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .fr-card__image-area {
+    min-height: unset;
+    height: 180px;
+    order: -1;
+    padding: 12px;
+  }
+
+  .fr-card__text {
+    padding: var(--space-lg);
+    overflow-y: auto;
+  }
+
+  .fr-card__title {
+    font-size: clamp(22px, 5vw, 32px);
+    margin-bottom: var(--space-md);
+  }
+
+  .fr-card__desc {
+    font-size: 13px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .fr-card__stats {
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .fr-card__stat-value {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .featured-research__heading {
+    font-size: clamp(32px, 5vw, 56px);
+  }
+
+  .featured-research__cta-btn {
+    padding: 16px 32px;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,42 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ──────────────── GLOBAL STATUS PILLS ──────────────── */
+.global-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 11px; /* Slightly smaller globally */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: fit-content;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor; /* Glow effect matching dot color */
+}
+
+/* Status Colors */
+.color-green { color: #1fd655; border-color: rgba(31, 214, 85, 0.3); }
+.color-green .status-dot { background: #1fd655; }
+
+.color-yellow { color: #ffb800; border-color: rgba(255, 184, 0, 0.3); }
+.color-yellow .status-dot { background: #ffb800; }
+
+.color-gray { color: #a0a0a0; border-color: rgba(160, 160, 160, 0.3); }
+.color-gray .status-dot { background: #a0a0a0; }
+
+.color-accent { color: var(--color-accent); border-color: rgba(226, 255, 0, 0.3); }
+.color-accent .status-dot { background: var(--color-accent); }

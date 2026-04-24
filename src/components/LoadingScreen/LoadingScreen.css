@@ -1,0 +1,34 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg);
+  z-index: var(--z-loading);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-3xl);
+  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s var(--ease-out-expo);
+}
+
+.loading-screen.exiting {
+  transform: scale(1.05);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-screen.hidden {
+  display: none;
+}
+
+.loading-counter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(80px, 12vw, 160px);
+  color: var(--color-text-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}

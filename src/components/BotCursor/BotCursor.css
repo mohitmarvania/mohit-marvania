@@ -1,0 +1,77 @@
+.bot-cursor {
+  position: fixed;
+  z-index: var(--z-cursor);
+  pointer-events: none;
+  transition: none;
+}
+
+.bot-cursor-pointer {
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+
+.bot-cursor-pointer svg {
+  width: 14px;
+  height: 14px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.bot-cursor-label {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  background: var(--color-cursor-bg);
+  color: var(--color-cursor-text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.bot-cursor-bubble {
+  position: absolute;
+  top: 38px;
+  left: 12px;
+  background: var(--color-cursor-bg);
+  color: var(--color-cursor-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border-top-left-radius: 2px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bot-cursor-bubble.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Status label that appears above the name during interaction */
+.bot-status-label {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+}
+
+.bot-status-label.aligning {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.bot-status-label.drag {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-bg);
+}

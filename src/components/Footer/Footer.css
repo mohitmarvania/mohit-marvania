@@ -1,0 +1,314 @@
+/* ============================================
+   FOOTER — Let's Collaborate CTA + Links
+   ============================================ */
+
+.footer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: var(--z-content);
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--side-padding);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ─── CTA Block (centered vertically) ─── */
+.footer__cta-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-3xl);
+  padding: var(--space-5xl) 0;
+}
+
+.footer__cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 9vw, 140px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.footer__cta-solid {
+  color: var(--color-text-primary);
+  display: block;
+}
+
+.footer__cta-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-accent);
+  display: block;
+}
+
+/* ─── Email row ─── */
+.footer__email-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  overflow: visible;
+}
+
+.footer__email {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.4vw, 20px);
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  padding: 12px 24px;
+  border: 1px solid var(--color-card-border);
+  border-radius: 8px;
+  transition: all 0.4s var(--ease-out-expo);
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.footer__email:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+  background: var(--color-accent-dim);
+}
+
+.footer__email:active {
+  transform: scale(0.97);
+}
+
+/* Flash highlight on copy */
+.footer__email.copied {
+  border-color: var(--color-accent);
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+}
+
+.footer__email-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+.footer__email.copied ~ .footer__email-hint {
+  opacity: 0;
+}
+
+/* ─── Bot cursor (scoped to footer, absolute within email wrapper parent) ─── */
+.footer__bot-cursor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.footer__bot-cursor.visible {
+  opacity: 1;
+}
+
+.footer__bot-pointer {
+  width: 14px;
+  height: 14px;
+}
+
+.footer__bot-pointer svg {
+  width: 14px;
+  height: 14px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.footer__bot-label {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  background: var(--color-cursor-bg);
+  color: var(--color-cursor-text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.footer__bot-bubble {
+  position: absolute;
+  top: 38px;
+  left: 12px;
+  background: var(--color-cursor-bg);
+  color: var(--color-cursor-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border-top-left-radius: 2px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer__bot-bubble.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Social links ─── */
+.footer__socials {
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer__social-link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.footer__social-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.3s var(--ease-out-expo);
+}
+
+.footer__social-link:hover {
+  color: var(--color-text-primary);
+}
+
+.footer__social-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Bottom bar ─── */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-card-border);
+}
+
+.footer__bottom-left {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.footer__bottom-left-solid {
+  color: var(--color-text-primary);
+}
+
+.footer__bottom-left-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-accent);
+  margin-left: 0.2em;
+}
+
+.footer__bottom-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.footer__bottom-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+}
+
+.footer__bottom-link:hover {
+  color: var(--color-text-primary);
+}
+
+.footer__copyright {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+}
+
+/* ─── Scroll-reveal ─── */
+.footer__cta-heading,
+.footer__email-wrapper,
+.footer__socials {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.footer.in-view .footer__cta-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer.in-view .footer__email-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.footer.in-view .footer__socials {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .footer__cta-heading {
+    font-size: clamp(40px, 10vw, 72px);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .footer__bottom-right {
+    justify-content: center;
+  }
+
+  .footer__socials {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__email {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+}

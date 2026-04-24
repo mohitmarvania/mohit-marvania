@@ -1,0 +1,282 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+/* Dot grid background */
+.hero-dot-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Tagline above the name */
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+  z-index: var(--z-content);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out-expo) 0.2s, transform 0.8s var(--ease-out-expo) 0.2s;
+}
+
+.hero-tagline.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Name container */
+.hero-name-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: var(--z-content);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out-expo) 0.4s, transform 0.8s var(--ease-out-expo) 0.4s;
+}
+
+.hero-name-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Draggable first name */
+.hero-firstname {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 12vw, 180px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+}
+
+/* Selection box around draggable name */
+.hero-firstname-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-selection-box {
+  position: absolute;
+  top: -8px;
+  left: -12px;
+  right: -12px;
+  bottom: -8px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-firstname-wrapper:hover .hero-selection-box,
+.hero-firstname-wrapper.dragging .hero-selection-box {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* "DRAG TO MOVE" label */
+.hero-drag-label {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-bg);
+  padding: 3px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-firstname-wrapper:hover .hero-drag-label {
+  opacity: 1;
+}
+
+.hero-firstname-wrapper.dragging .hero-drag-label {
+  opacity: 0;
+}
+
+/* Outlined last name */
+.hero-lastname {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 12vw, 180px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+  user-select: none;
+  z-index: 1;
+}
+
+/* Status label (Aligning to Grid...) */
+.hero-status-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: var(--z-content);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-status-label.visible {
+  opacity: 1;
+}
+
+.hero-status-label.aligning {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2xl);
+  z-index: var(--z-content);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out-expo) 0.6s, transform 0.8s var(--ease-out-expo) 0.6s;
+}
+
+.hero-subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtitle typing field (Figma-like) */
+.hero-subtitle-field {
+  position: relative;
+  margin-top: var(--space-2xl);
+  z-index: var(--z-content);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out-expo) 0.6s, transform 0.8s var(--ease-out-expo) 0.6s;
+}
+
+.hero-subtitle-field.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-subtitle-field-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-cursor-bg);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.hero-subtitle-field-box {
+  display: inline-block;
+  border: 1.5px solid var(--color-cursor-bg);
+  border-radius: 4px;
+  padding: 8px 14px;
+  min-width: 280px;
+}
+
+.hero-subtitle-field-text {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--color-text-secondary);
+}
+
+.hero-subtitle-field-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--color-cursor-bg);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-2xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  opacity: 0;
+  animation: fadeInScroll 0.8s var(--ease-out-expo) 1.5s forwards;
+}
+
+.hero-scroll-indicator span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.hero-scroll-indicator .arrow {
+  width: 1px;
+  height: 24px;
+  background: var(--color-text-tertiary);
+  position: relative;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes fadeInScroll {
+  to { opacity: 1; }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-lastname {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+  }
+}

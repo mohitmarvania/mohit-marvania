@@ -1,0 +1,48 @@
+/* ─── LINK PREVIEW ─── */
+
+.link-preview-wrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.link-preview-trigger {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(226, 255, 0, 0.3);
+  cursor: none;
+  transition: border-color 0.3s ease;
+}
+
+.link-preview-trigger:hover {
+  border-color: var(--color-accent);
+}
+
+/* ─── Preview Card ─── */
+
+.link-preview-card {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  margin-left: -125px;           /* half of width (250/2) */
+  width: 250px;
+  background: #111115;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55),
+              0 0 0 1px rgba(255, 255, 255, 0.04);
+  z-index: 300;
+  pointer-events: none;
+}
+
+/* ─── Image ─── */
+
+.link-preview-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  background: #1a1a1e;   /* placeholder bg while loading */
+}
