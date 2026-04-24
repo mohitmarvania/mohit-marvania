@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageTransition from '../../components/PageTransition/PageTransition';
@@ -111,7 +111,7 @@ export default function ResearchDetailPage() {
             </motion.p>
           </div>
 
-          {project.contentSections?.map((section, idx) => (
+          {project.contentSections?.map((section) => (
             <div key={section.id} className="editorial-section">
               {/* Sticky Sidebar */}
               <div className="editorial-left">

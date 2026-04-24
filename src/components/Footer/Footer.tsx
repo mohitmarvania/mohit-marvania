@@ -31,7 +31,7 @@ export default function Footer() {
   const [typedMessage, setTypedMessage] = useState('');
   const [botPos, setBotPos] = useState({ x: 0, y: 0 });
   const copyCountRef = useRef(0);
-  const hideTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /* ─── Scroll-reveal ─── */
   useEffect(() => {

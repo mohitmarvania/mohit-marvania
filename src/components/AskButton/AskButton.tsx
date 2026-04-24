@@ -123,19 +123,7 @@ export default function AskButton({ visible }: AskButtonProps) {
     if (qa) selectQuestion(qa);
   }, [selectQuestion]);
 
-  // ─── Keyboard navigation in results ───
-  const handleInputKeyDown = useCallback((e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      setActiveIndex(prev => Math.min(prev + 1, results.length - 1));
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      setActiveIndex(prev => Math.max(prev - 1, 0));
-    } else if (e.key === 'Enter' && results.length > 0) {
-      e.preventDefault();
-      selectQuestion(results[activeIndex]);
-    }
-  }, [results, activeIndex, selectQuestion]);
+
 
   // ─── Back from answer ───
   const goBack = useCallback(() => {
