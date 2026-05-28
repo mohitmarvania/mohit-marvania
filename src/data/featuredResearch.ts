@@ -83,8 +83,8 @@ const featuredResearch: FeaturedResearchItem[] = [
       { label: 'CONFERENCE', value: 'ICML 2026' }
     ],
     statusTag: {
-      text: 'Under Review · ICML 2026',
-      color: 'yellow' // Try 'yellow', 'gray', or 'accent'
+      text: 'Accepted · ICML 2026',
+      color: 'green' // Try 'yellow', 'gray', or 'accent'
     },
     overview: 'As LLMs increasingly integrate into digital workflows, identifying machine-generated content has become a critical requirement. However, existing watermark detectors exhibit sharp performance deterioration under adversarial paraphrasing and on shorter texts. The Pattern Stability Score (PSS) is a detector-centric framework that solves this by leveraging local statistical features and evaluating their stability dynamics across multiple rewrite variants.',
     contentSections: [
